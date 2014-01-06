@@ -17,6 +17,8 @@ class Job(object):
 
 
 def get_craigslist(location, title):
+    if ',' in location:
+        location = location.strip(location[location.find(','):])
     location = ''.join(re.findall(r'[a-zA-Z]+', location)).lower()
     title = title.split(" ")
     if len(title) == 1:
